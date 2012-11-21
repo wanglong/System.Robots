@@ -25,3 +25,6 @@ D:\doc\VS2012 Work\System.Robots\System.Robots\bin\Release\Quartz.xml
 D:\doc\VS2012 Work\System.Robots\System.Robots\obj\Release\System.Robots.exe
 D:\doc\VS2012 Work\System.Robots\System.Robots\obj\Release\System.Robots.pdb
 D:\doc\VS2012 Work\System.Robots\System.Robots\obj\Release\System.Robots.csprojResolveAssemblyReference.cache
+D:\Git Work\System.Robots\System.Robots\bin\Release\System.Robots.exe.config
+D:\Git Work\System.Robots\System.Robots\obj\Release\System.Robots.exe
+D:\Git Work\System.Robots\System.Robots\obj\Release\System.Robots.pdb

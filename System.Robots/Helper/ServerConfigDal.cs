@@ -14,14 +14,14 @@ namespace System.Robots.Helper
     /// </summary>
     public partial class ServerConfigDal
     {
-        OracleHelper OracleHelper = new OracleHelper(ConfigurationManager.ConnectionStrings["ErpBasicDbConnection"].ToString());
+        OracleHelper OracleHelper = new OracleHelper(ConfigurationManager.ConnectionStrings["RobotsBasicDbConnection"].ToString());
         public ServerConfigDal()
         { }
 
         public bool Exists(decimal ID)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) from ERP_SERVERCONFIG");
+            strSql.Append("select count(1) from Robots_ServerConfig");
             strSql.Append(" where ");
             strSql.Append(" ID = :ID  ");
             OracleParameter[] parameters = {
@@ -40,7 +40,7 @@ namespace System.Robots.Helper
         {
             StringBuilder strSql = new StringBuilder();
             List<OracleParameter> listPara = new List<OracleParameter>();
-            strSql.Append("insert into ERP_SERVERCONFIG(");
+            strSql.Append("insert into Robots_ServerConfig(");
             strSql.Append("ID,SERVICENAME,SERVICEIP,LASTTIME,PASSMINUTE,SECOND");
             strSql.Append(") values (");
             strSql.Append(":ID,:SERVICENAME,:SERVICEIP,sysdate,:PASSMINUTE,:SECOND");
@@ -74,7 +74,7 @@ namespace System.Robots.Helper
         public bool Update(ServerConfigModel model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update ERP_SERVERCONFIG set ");
+            strSql.Append("update Robots_ServerConfig set ");
 
             strSql.Append(" ID = :ID , ");
             strSql.Append(" SERVICENAME = :SERVICENAME , ");
@@ -110,7 +110,7 @@ namespace System.Robots.Helper
         public bool UpdateLastTime(ServerConfigModel model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update ERP_SERVERCONFIG set ");
+            strSql.Append("update Robots_ServerConfig set ");
 
             strSql.Append(" LASTTIME = SYSDATE,PASSMINUTE=:PASSMINUTE,SECOND=:SECOND  ");
             strSql.Append(" where ID=:ID and SERVICENAME=:SERVICENAME and LASTTIME=:LASTTIME and SERVICEIP=:SERVICEIP ");
@@ -141,7 +141,7 @@ namespace System.Robots.Helper
         public bool UpdateLastIp(ServerConfigModel model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update ERP_SERVERCONFIG set ");
+            strSql.Append("update Robots_ServerConfig set ");
 
             strSql.Append(" LASTTIME = SYSDATE,SERVICEIP=:SERVICEIP,PASSMINUTE=:PASSMINUTE,SECOND=:SECOND  ");
             strSql.Append(" where ID=:ID and SERVICENAME=:SERVICENAME and LASTTIME=:LASTTIME and SERVICEIP=:SERVICEIPPER ");
@@ -176,7 +176,7 @@ namespace System.Robots.Helper
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from ERP_SERVERCONFIG ");
+            strSql.Append("delete from Robots_ServerConfig ");
             strSql.Append(" where ID=:ID ");
             OracleParameter[] parameters = {
 					new OracleParameter(":ID", OracleType.Number,4)			};
@@ -204,7 +204,7 @@ namespace System.Robots.Helper
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select ID, SERVICENAME, SERVICEIP, LASTTIME,PASSMINUTE  ");
-            strSql.Append("  from ERP_SERVERCONFIG ");
+            strSql.Append("  from Robots_ServerConfig ");
             strSql.Append(" where ID=:ID ");
             OracleParameter[] parameters = {
 					new OracleParameter(":ID", OracleType.Number,4)			};
@@ -223,7 +223,7 @@ namespace System.Robots.Helper
             List<OracleParameter> listpara = new List<OracleParameter>();
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select ID, SERVICENAME, SERVICEIP, LASTTIME,SYSDATE SYSDATETIME,PASSMINUTE,SECOND  ");
-            strSql.Append("  from ERP_SERVERCONFIG ");
+            strSql.Append("  from Robots_ServerConfig ");
             strSql.Append(" where 1=1 ");
             if (!string.IsNullOrEmpty(model.SERVICENAME))
             {
@@ -250,7 +250,7 @@ namespace System.Robots.Helper
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select * ");
-            strSql.Append(" FROM ERP_SERVERCONFIG ");
+            strSql.Append(" FROM Robots_ServerConfig ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -270,7 +270,7 @@ namespace System.Robots.Helper
                 strSql.Append(" top " + Top.ToString());
             }
             strSql.Append(" * ");
-            strSql.Append(" FROM ERP_SERVERCONFIG ");
+            strSql.Append(" FROM Robots_ServerConfig ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
