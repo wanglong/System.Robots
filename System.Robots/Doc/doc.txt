@@ -1,0 +1,15 @@
+﻿
+====================================================================================
+安装：System.Robots.exe install
+启动：System.Robots.exe start
+卸载：System.Robots.exe uninstall
+
+====================================================================================
+table: Robots_ServerConfig
+名称           类型             注释
+ID	           NUMBER           主键自增ID
+SERVICENAME   VARCHAR2(500)     服务名称
+SERVICEIP     VARCHAR2(100)     运行服务IP
+LASTTIME	   DATE				最后操作时间
+PASSMINUTE     NUMBER			通过执行时间，每隔此时间检查服务是否运行
+SECOND		   NUMBER			服务定时执行间隔时间

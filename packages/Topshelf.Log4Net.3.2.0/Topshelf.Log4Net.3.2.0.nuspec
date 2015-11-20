@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Topshelf.Log4Net</id>
+    <version>3.2.0</version>
+    <title>Topshelf.Log4Net</title>
+    <authors>Chris Patterson,  Dru Sellers,  Travis Smith</authors>
+    <owners>Chris Patterson,  Dru Sellers,  Travis Smith</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>http://github.com/Topshelf/Topshelf</projectUrl>
+    <iconUrl>http://topshelf-project.com/wp-content/themes/pandora/slide.1.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Log4Net Logging Integration for Topshelf. Topshelf is an open source project for hosting services without friction. By referencing Topshelf, your console application *becomes* a service installer with a comprehensive set of command-line options for installing, configuring, and running your application as a service.</description>
+    <summary>Topshelf, Friction-free Windows Services</summary>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+    <dependencies>
+      <dependency id="Topshelf" version="3.2.0" />
+      <dependency id="Log4Net" version="2.0.3" />
+    </dependencies>
+  </metadata>
+</package>

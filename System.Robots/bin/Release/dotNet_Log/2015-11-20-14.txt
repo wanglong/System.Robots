@@ -1,0 +1,4 @@
+检查服务配制失败: 尝试加载 Oracle 客户端库时引发 BadImageFormatException。如果在安装 32 位 Oracle 客户端组件的情况下以 64 位模式运行，将出现此问题。
+检查服务配制失败: 尝试加载 Oracle 客户端库时引发 BadImageFormatException。如果在安装 32 位 Oracle 客户端组件的情况下以 64 位模式运行，将出现此问题。
+IP相同,5分后,获权,返回F
+IP相同,5分后,获权,返回F
