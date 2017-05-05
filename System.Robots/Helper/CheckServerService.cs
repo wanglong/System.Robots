@@ -12,6 +12,11 @@ namespace System.Robots.Helper
     public class CheckServerService
     {
         /// <summary>
+        /// The bool write log flag
+        /// </summary>
+        public static bool bolWriteLogFlag = true;
+
+        /// <summary>
         /// Checks the server.
         /// </summary>
         /// <param name="serviceName">Name of the service.</param>
@@ -58,7 +63,11 @@ namespace System.Robots.Helper
                         {
                             severConfigModel.SECOND = second;
                             var bak = serverConfigBll.UpdateLastTime(severConfigModel);
-                            TextLog.Append(string.Format("IP相同,{0}分内,有权,返回T", passMinute));
+                            if (bolWriteLogFlag)
+                            {
+                                TextLog.Append(string.Format("IP相同,{0}分内,有权,返回T", passMinute));
+                                bolWriteLogFlag = false;
+                            }
                             return bak;
                         }
                         else
@@ -68,6 +77,7 @@ namespace System.Robots.Helper
                             var bak = serverConfigBll.UpdateLastTime(severConfigModel);
                             //存在记录IP相同，5分种后主服务器收回权限，返回更新true;
                             TextLog.Append(string.Format("IP相同,{0}分后,获权,返回F", passMinute));
+                            bolWriteLogFlag = true;
                             return false;
 
                         }
@@ -78,6 +88,7 @@ namespace System.Robots.Helper
                         if (severConfigModel.SYSDATETIME > severConfigModel.LASTTIME.AddMinutes(passMinute).AddSeconds(severConfigModel.SECOND))
                         {
                             TextLog.Append(string.Format("IP不同,{0}分种后,获权,返回F", passMinute));
+                            bolWriteLogFlag = true;
                             severConfigModel.SERVICEIPPER = severConfigModel.SERVICEIP;
                             severConfigModel.SERVICEIP = serviceIp;
                             severConfigModel.SECOND = second;
@@ -86,9 +97,9 @@ namespace System.Robots.Helper
                         }
                         else
                         {
-
                             //IP不同，5分种内返回false
                             TextLog.Append(string.Format("IP不同,{0}分种内,无权,返回F", passMinute));
+                            bolWriteLogFlag = true;
                             return false;
                         }
                     }
